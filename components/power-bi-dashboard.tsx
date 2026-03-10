@@ -4,8 +4,8 @@ import Link from "next/link";
 import { ArrowLeft, BarChart3, ExternalLink, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Configuration - Remplacez cette URL par votre URL Power BI publique
-const POWER_BI_EMBED_URL = "";
+// Configuration - URL Power BI
+const POWER_BI_EMBED_URL = "https://app.powerbi.com/reportEmbed?reportId=51301f0e-06cc-498d-8088-db0742bef1b7&groupId=68175708-eb06-4d5e-8ae8-baff5902eda6&pageName=2d997b5e613689870e6e&autoAuth=true&ctid=common";
 
 export function PowerBIDashboard() {
   const hasEmbedUrl = POWER_BI_EMBED_URL.length > 0;
