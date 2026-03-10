@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Download, BarChart3 } from "lucide-react";
-import Link from "next/link";
+import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -55,13 +54,6 @@ export function Navbar() {
           ))}
         </ul>
 
-        <Button asChild variant="outline" size="sm" className="hidden gap-2 lg:inline-flex">
-          <Link href="/dashboard">
-            <BarChart3 size={14} />
-            Dashboard
-          </Link>
-        </Button>
-
         <Button asChild size="sm" className="hidden gap-2 lg:inline-flex">
           <a href="/Mouhamadou-Kane-CV.pdf" download="Mouhamadou-Kane-CV.pdf">
             <Download size={14} />
@@ -95,14 +87,6 @@ export function Navbar() {
                 </a>
               </li>
             ))}
-            <li className="mt-2">
-              <Button asChild variant="outline" size="sm" className="w-full gap-2">
-                <Link href="/dashboard" onClick={() => setMobileOpen(false)}>
-                  <BarChart3 size={14} />
-                  Dashboard Power BI
-                </Link>
-              </Button>
-            </li>
             <li className="mt-2">
               <Button asChild size="sm" className="w-full gap-2">
                 <a
