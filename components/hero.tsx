@@ -38,7 +38,7 @@ export function Hero() {
             className="animate-fade-in-up mt-3 font-heading text-xl font-semibold text-primary sm:text-2xl"
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
-            Data Analyst & Business Analyst
+            Data Analyst | Business Analyst | Power BI
           </p>
 
           <p
