@@ -2,8 +2,15 @@
 
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, Eye, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 function useInView(ref: React.RefObject<HTMLElement | null>) {
   const [isInView, setIsInView] = useState(false);
@@ -25,42 +32,57 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 }
 
 const certifications = [
-
-	{
-    title: "Power BI expert",
-    provider: "SNCF",
+  {
+    title: "Power BI Expert",
+    provider: "SNCF Voyageurs",
     year: "2026",
-    category: "Visualisation",
+    category: "Data Visualisation",
+    certificateUrl: "/certificates/certificat-power-bi-expert.pdf",
   },
   {
-    title: "Power BI avancé",
-    provider: "SNCF",
+    title: "Power BI Avancé",
+    provider: "SNCF Voyageurs",
     year: "2025",
-    category: "Visualisation",
+    category: "Data Visualisation",
+    certificateUrl: "/certificates/certificat-power-bi-avance.pdf",
   },
   {
-    title: "Responsabilité Sociétale des Entreprises (RSE)",
-    provider: "SNCF",
-    year: "2025",
+    title: "Transition Écologique & RSE",
+    provider: "SNCF Voyageurs",
+    year: "2026",
     category: "Sustainability",
+    certificateUrl: "/certificates/certificat-rse.pdf",
   },
   {
-    title: "Intelligence Artificielle",
-    provider: "Spark Numeric (Dakar)",
-    year: "2021",
-    category: "IA",
+    title: "RGPD - Protection des Données",
+    provider: "SNCF Voyageurs",
+    year: "2025",
+    category: "Sécurité",
+    certificateUrl: "/certificates/certificat-rgpd.pdf",
   },
   {
-    title: "Machine Learning avec Python",
-    provider: "Udemy",
-    year: "2021",
-    category: "Data Science",
+    title: "Cybersécurité - Phishing",
+    provider: "SNCF Voyageurs",
+    year: "2025",
+    category: "Sécurité",
+    certificateUrl: "/certificates/certificat-phishing.pdf",
+  },
+  {
+    title: "10 Réflexes Cybersécurité",
+    provider: "SNCF Voyageurs",
+    year: "2025",
+    category: "Sécurité",
+    certificateUrl: "/certificates/certificat-10-reflexes.pdf",
   },
 ];
 
 export function Certifications() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef);
+  const [selectedCertificate, setSelectedCertificate] = useState<{
+    title: string;
+    url: string;
+  } | null>(null);
 
   return (
     <section
@@ -107,18 +129,49 @@ export function Certifications() {
                   </Badge>
                   <span className="text-xs text-muted-foreground">{cert.year}</span>
                 </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-3 h-8 w-full gap-2 text-xs"
+                  onClick={() =>
+                    setSelectedCertificate({
+                      title: cert.title,
+                      url: cert.certificateUrl,
+                    })
+                  }
+                  aria-label={`Voir le certificat ${cert.title}`}
+                >
+                  <Eye size={14} />
+                  Voir le certificat
+                </Button>
               </div>
-              <a
-                href="#"
-                className="shrink-0 text-muted-foreground transition-colors hover:text-primary"
-                aria-label={`Voir la certification ${cert.title}`}
-              >
-                <ExternalLink size={14} />
-              </a>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Modal pour visualiser le certificat */}
+      <Dialog
+        open={!!selectedCertificate}
+        onOpenChange={(open) => !open && setSelectedCertificate(null)}
+      >
+        <DialogContent className="max-h-[90vh] max-w-4xl p-0">
+          <DialogHeader className="border-b px-6 py-4">
+            <DialogTitle className="text-lg font-semibold">
+              {selectedCertificate?.title}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="relative h-[70vh] w-full">
+            {selectedCertificate && (
+              <iframe
+                src={selectedCertificate.url}
+                className="h-full w-full"
+                title={`Certificat ${selectedCertificate.title}`}
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
