@@ -2,8 +2,9 @@
 
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, Download } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 function useInView(ref: React.RefObject<HTMLElement | null>) {
   const [isInView, setIsInView] = useState(false);
@@ -25,36 +26,40 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 }
 
 const certifications = [
-
-	{
+  {
     title: "Power BI expert",
     provider: "SNCF",
     year: "2026",
     category: "Visualisation",
+    certificateUrl: "/certificates/power-bi-expert.pdf",
   },
   {
     title: "Power BI avancé",
     provider: "SNCF",
     year: "2025",
     category: "Visualisation",
+    certificateUrl: "/certificates/power-bi-avance.pdf",
   },
   {
     title: "Responsabilité Sociétale des Entreprises (RSE)",
     provider: "SNCF",
     year: "2025",
     category: "Sustainability",
+    certificateUrl: "/certificates/rse.pdf",
   },
   {
     title: "Intelligence Artificielle",
     provider: "Spark Numeric (Dakar)",
     year: "2021",
     category: "IA",
+    certificateUrl: "/certificates/intelligence-artificielle.pdf",
   },
   {
     title: "Machine Learning avec Python",
     provider: "Udemy",
     year: "2021",
     category: "Data Science",
+    certificateUrl: "/certificates/machine-learning-python.pdf",
   },
 ];
 
@@ -107,14 +112,22 @@ export function Certifications() {
                   </Badge>
                   <span className="text-xs text-muted-foreground">{cert.year}</span>
                 </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-3 h-8 w-full gap-2 text-xs"
+                  asChild
+                >
+                  <a
+                    href={cert.certificateUrl}
+                    download
+                    aria-label={`Télécharger le certificat ${cert.title}`}
+                  >
+                    <Download size={14} />
+                    Télécharger
+                  </a>
+                </Button>
               </div>
-              <a
-                href="#"
-                className="shrink-0 text-muted-foreground transition-colors hover:text-primary"
-                aria-label={`Voir la certification ${cert.title}`}
-              >
-                <ExternalLink size={14} />
-              </a>
             </div>
           ))}
         </div>
