@@ -2,9 +2,15 @@
 
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { Award, Eye } from "lucide-react";
+import { Award, Eye, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 function useInView(ref: React.RefObject<HTMLElement | null>) {
   const [isInView, setIsInView] = useState(false);
@@ -66,6 +72,10 @@ const certifications = [
 export function Certifications() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef);
+  const [selectedCertificate, setSelectedCertificate] = useState<{
+    title: string;
+    url: string;
+  } | null>(null);
 
   return (
     <section
@@ -116,23 +126,45 @@ export function Certifications() {
                   variant="outline"
                   size="sm"
                   className="mt-3 h-8 w-full gap-2 text-xs"
-                  asChild
+                  onClick={() =>
+                    setSelectedCertificate({
+                      title: cert.title,
+                      url: cert.certificateUrl,
+                    })
+                  }
+                  aria-label={`Voir le certificat ${cert.title}`}
                 >
-                  <a
-                    href={cert.certificateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Voir le certificat ${cert.title}`}
-                  >
-                    <Eye size={14} />
-                    Voir le certificat
-                  </a>
+                  <Eye size={14} />
+                  Voir le certificat
                 </Button>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Modal pour visualiser le certificat */}
+      <Dialog
+        open={!!selectedCertificate}
+        onOpenChange={(open) => !open && setSelectedCertificate(null)}
+      >
+        <DialogContent className="max-h-[90vh] max-w-4xl p-0">
+          <DialogHeader className="border-b px-6 py-4">
+            <DialogTitle className="text-lg font-semibold">
+              {selectedCertificate?.title}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="relative h-[70vh] w-full">
+            {selectedCertificate && (
+              <iframe
+                src={selectedCertificate.url}
+                className="h-full w-full"
+                title={`Certificat ${selectedCertificate.title}`}
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
