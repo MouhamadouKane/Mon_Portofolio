@@ -29,46 +29,46 @@ const projects = [
     icon: BarChart3,
     title: "Application Power BI - Suivi de la Fraude",
     problem:
-      "Les equipes de Keolis Lille Metropole avaient besoin d'un outil centralise pour suivre efficacement la fraude et adapter leurs actions sur le terrain.",
+      "Les équipes de Keolis Lille Métropole avaient besoin d'un outil centralisé pour suivre efficacement la fraude et adapter leurs actions sur le terrain.",
     tags: ["Power BI", "DAX", "Business Object", "Excel"],
     highlights: [
-      "Application Power BI deployee",
-      "Suivi personnalise par equipe",
-      "Donnees Ilevia integrees",
+      "Application Power BI déployée",
+      "Suivi personnalisé par équipe",
+      "Données Ilévia intégrées",
     ],
   },
   {
     icon: Users,
-    title: "Application Power BI - Decisions Strategiques SNCF",
+    title: "Application Power BI - Décisions Stratégiques SNCF",
     problem:
-      "La SNCF Voyageurs avait besoin d'un outil BI permettant aux equipes de prendre des decisions strategiques basees sur des donnees fiables et actualisees.",
+      "La SNCF Voyageurs avait besoin d'un outil BI permettant aux équipes de prendre des décisions stratégiques basées sur des données fiables et actualisées.",
     tags: ["Power BI", "Opale", "Excel", "DAX"],
     highlights: [
-      "Aide a la decision strategique",
-      "Reporting automatise",
+      "Aide à la décision stratégique",
+      "Reporting automatisé",
       "Dashboards interactifs",
     ],
   },
   {
     icon: TrendingUp,
-    title: "Analyse des Donnees de Fraude - MEL",
+    title: "Analyse des Données de Fraude - MEL",
     problem:
-      "Traiter et analyser les donnees de fraude pour la Metropole Europeenne de Lille afin de mieux comprendre les tendances et optimiser les controles.",
+      "Traiter et analyser les données de fraude pour la Métropole Européenne de Lille afin de mieux comprendre les tendances et optimiser les contrôles.",
     tags: ["Excel", "VBA", "Power BI", "ARCGIS"],
     highlights: [
       "Automatisation Excel avec VBA",
-      "Analyse geospatiale ARCGIS",
+      "Analyse géospatiale ARCGIS",
       "Reporting pour la MEL",
     ],
   },
   {
     icon: PieChart,
-    title: "Reporting Multi-Outils Ilevia",
+    title: "Reporting Multi-Outils Ilévia",
     problem:
-      "Consolider les donnees provenant de sources multiples pour produire un reporting complet et fiable sur les operations du reseau Ilevia.",
+      "Consolider les données provenant de sources multiples pour produire un reporting complet et fiable sur les opérations du réseau Ilévia.",
     tags: ["Power BI", "Business Object", "Excel", "ARCGIS"],
     highlights: [
-      "Sources de donnees consolidees",
+      "Sources de données consolidées",
       "Rapports multi-dimensionnels",
       "Visualisations cartographiques",
     ],
@@ -91,7 +91,7 @@ export function Projects() {
             Projets
           </p>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {"Mes realisations"}
+            {"Mes réalisations"}
           </h2>
           <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
         </div>
@@ -143,7 +143,7 @@ export function Projects() {
                 </div>
                 <div className="mt-auto space-y-1.5">
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                    Resultats cles
+                    Résultats clés
                   </p>
                   {project.highlights.map((h) => (
                     <div

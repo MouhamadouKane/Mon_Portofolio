@@ -60,7 +60,7 @@ const skillCategories = [
   {
     icon: Languages,
     title: "Langues",
-    skills: ["Francais", "Anglais", "Wolof"],
+    skills: ["Français", "Anglais", "Wolof"],
   },
 ];
 

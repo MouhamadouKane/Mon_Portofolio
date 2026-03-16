@@ -73,7 +73,7 @@ const experiences = [
     type: "Stage",
     missions: [
       "Traitement et analyse des données Malaria de la région de Kédougou",
-      "Reporting et mise en place des tableau de bord inter actif",
+      "Reporting et mise en place des tableaux de bord interactifs",
     ],
     tools: ["Tableau Desktop", "Excel", "VBA", "ARCGIS"],
   },
