@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { Award, Download } from "lucide-react";
+import { Award, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -120,11 +120,12 @@ export function Certifications() {
                 >
                   <a
                     href={cert.certificateUrl}
-                    download
-                    aria-label={`Télécharger le certificat ${cert.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Voir le certificat ${cert.title}`}
                   >
-                    <Download size={14} />
-                    Télécharger
+                    <Eye size={14} />
+                    Voir le certificat
                   </a>
                 </Button>
               </div>
