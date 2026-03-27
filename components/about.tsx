@@ -59,7 +59,7 @@ export function About() {
       icon: Target,
       title: "Objectifs",
       description:
-        "Recherche d'un CDD ou CDI à partir d'octobre 2025 pour mettre à profit mes compétences en data analyse, reporting et business intelligence au service d'une entreprise ambitieuse et innovante.",
+        "Recherche d'un CDD ou CDI à partir d'octobre 2026 pour mettre à profit mes compétences en data analyse, reporting et business intelligence au service d'une entreprise ambitieuse et innovante.",
     },
   ];
 
