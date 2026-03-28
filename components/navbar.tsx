@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
+/*import { ThemeToggle } from "@/components/theme-toggle";*/
 
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
