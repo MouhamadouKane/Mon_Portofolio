@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-/*import { ThemeToggle } from "@/components/theme-toggle";*/
 
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
@@ -55,8 +54,8 @@ export function Navbar() {
           ))}
         </ul>
 
+        {/* Desktop actions */}
         <div className="hidden items-center gap-2 lg:flex">
-          <ThemeToggle />
           <Button asChild size="sm" className="gap-2">
             <a href="/Mouhamadou-Kane-CV.pdf" download="Mouhamadou-Kane-CV.pdf">
               <Download size={14} />
@@ -92,7 +91,6 @@ export function Navbar() {
               </li>
             ))}
             <li className="mt-2 flex items-center gap-2">
-              <ThemeToggle />
               <Button asChild size="sm" className="flex-1 gap-2">
                 <a
                   href="/Mouhamadou-Kane-CV.pdf"
