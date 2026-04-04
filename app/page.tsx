@@ -5,6 +5,7 @@ import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
 import { Experience } from "@/components/experience";
 import { Certifications } from "@/components/certifications";
+import { References } from "@/components/references";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 
@@ -19,6 +20,7 @@ export default function Page() {
         <Projects />
         <Experience />
         <Certifications />
+        <References />
         <Contact />
       </main>
       <Footer />
