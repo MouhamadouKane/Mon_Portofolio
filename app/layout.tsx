@@ -18,13 +18,32 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Mouhamadou Kane | Data Analyst & Business Analyst",
+  metadataBase: new URL("https://mouhamadou-kane.vercel.app"),
+  title: "Mouhamadou Kane | Data Analyst · Data Scientist · Expert Power BI",
   description:
-    "Portfolio professionnel de Mouhamadou Kane - Data Analyst & Business Analyst. Analyse de données, Power BI, reporting et aide à la décision.",
+    "3 ans d’expérience data dans le transport chez SNCF Voyageurs et Keolis. Power BI, Python et machine learning. Disponible immédiatement.",
+  applicationName: "Portfolio de Mouhamadou Kane",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: "/",
+    siteName: "Portfolio de Mouhamadou Kane",
+    title: "Mouhamadou Kane | Data Analyst · Data Scientist · Expert Power BI",
+    description:
+      "3 ans d’expérience data chez SNCF Voyageurs et Keolis. Power BI, Python et machine learning. Disponible immédiatement.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mouhamadou Kane | Data Analyst · Data Scientist · Expert Power BI",
+    description:
+      "3 ans d’expérience data chez SNCF Voyageurs et Keolis. Power BI, Python et machine learning. Disponible immédiatement.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2f9e6e",
+  themeColor: "#f8f7f3",
 };
 
 export default function RootLayout({

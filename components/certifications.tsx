@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { Award, Eye, X } from "lucide-react";
+import { Award, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -31,48 +31,57 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
   return isInView;
 }
 
-const certifications = [
+type CertificateLink = { label: string; url: string };
+type Certification = {
+  title: string;
+  provider?: string;
+  year?: string;
+  category: string;
+  certificateUrl?: string;
+  certificateLinks?: CertificateLink[];
+};
+
+const certifications: Certification[] = [
   {
     title: "Power BI Expert",
-    provider: "SNCF Voyageurs",
+    provider: "SNCF / ORSYS",
     year: "2026",
-    category: "Data Visualisation",
+    category: "Visualisation de données",
     certificateUrl: "/certificates/certificat-power-bi-expert.pdf",
   },
   {
     title: "Power BI Avancé",
-    provider: "SNCF Voyageurs",
+    provider: "SNCF / ORSYS",
     year: "2025",
-    category: "Data Visualisation",
+    category: "Visualisation de données",
     certificateUrl: "/certificates/certificat-power-bi-avance.pdf",
   },
   {
-    title: "Transition Écologique & RSE",
-    provider: "SNCF Voyageurs",
+    title: "Machine Learning avec Python",
+    provider: "Udemy",
+    category: "Machine Learning",
+  },
+  {
+    title: "Intelligence artificielle",
+    category: "Intelligence artificielle",
+  },
+  {
+    title: "Transition écologique & RSE",
+    provider: "SNCF",
     year: "2026",
-    category: "Sustainability",
+    category: "RSE",
     certificateUrl: "/certificates/certificat-rse.pdf",
   },
   {
-    title: "RGPD - Protection des Données",
-    provider: "SNCF Voyageurs",
+    title: "Conformité & cybersécurité",
+    provider: "SNCF",
     year: "2025",
     category: "Sécurité",
-    certificateUrl: "/certificates/certificat-rgpd.pdf",
-  },
-  {
-    title: "Cybersécurité - Phishing",
-    provider: "SNCF Voyageurs",
-    year: "2025",
-    category: "Sécurité",
-    certificateUrl: "/certificates/certificat-phishing.pdf",
-  },
-  {
-    title: "10 Réflexes Cybersécurité",
-    provider: "SNCF Voyageurs",
-    year: "2025",
-    category: "Sécurité",
-    certificateUrl: "/certificates/certificat-10-reflexes.pdf",
+    certificateLinks: [
+      { label: "RGPD", url: "/certificates/certificat-rgpd.pdf" },
+      { label: "Phishing", url: "/certificates/certificat-phishing.pdf" },
+      { label: "10 réflexes", url: "/certificates/certificat-10-reflexes.pdf" },
+    ],
   },
 ];
 
@@ -91,14 +100,16 @@ export function Certifications() {
       className="relative px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+        <div className="mb-12 max-w-2xl border-b border-border pb-7">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             Certifications
           </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {"Formations & Certifications"}
+          <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Une expertise qui continue d’évoluer.
           </h2>
-          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
+          <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
+            Power BI, protection des données et cybersécurité : les compétences renforcées par mes certifications.
+          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -120,30 +131,59 @@ export function Certifications() {
                 <h3 className="text-sm font-semibold leading-snug text-card-foreground">
                   {cert.title}
                 </h3>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {cert.provider}
-                </p>
-                <div className="mt-2.5 flex items-center gap-2">
+                {cert.provider && (
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {cert.provider}
+                  </p>
+                )}
+                <div className="mt-2.5 flex flex-wrap items-center gap-2">
                   <Badge variant="secondary" className="text-xs font-normal">
                     {cert.category}
                   </Badge>
-                  <span className="text-xs text-muted-foreground">{cert.year}</span>
+                  {cert.year && (
+                    <span className="text-xs text-muted-foreground">
+                      {cert.year}
+                    </span>
+                  )}
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="mt-3 h-8 w-full gap-2 text-xs"
-                  onClick={() =>
-                    setSelectedCertificate({
-                      title: cert.title,
-                      url: cert.certificateUrl,
-                    })
-                  }
-                  aria-label={`Voir le certificat ${cert.title}`}
-                >
-                  <Eye size={14} />
-                  Voir le certificat
-                </Button>
+                {cert.certificateUrl && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="mt-3 h-8 w-full gap-2 text-xs"
+                    onClick={() =>
+                      setSelectedCertificate({
+                        title: cert.title,
+                        url: cert.certificateUrl!,
+                      })
+                    }
+                    aria-label={`Voir le certificat ${cert.title}`}
+                  >
+                    <Eye size={14} />
+                    Voir le certificat
+                  </Button>
+                )}
+                {cert.certificateLinks && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {cert.certificateLinks.map((link) => (
+                      <Button
+                        key={link.label}
+                        variant="outline"
+                        size="sm"
+                        className="h-8 text-xs"
+                        onClick={() =>
+                          setSelectedCertificate({
+                            title: `${cert.title} · ${link.label}`,
+                            url: link.url,
+                          })
+                        }
+                        aria-label={`Voir le certificat ${link.label}`}
+                      >
+                        {link.label}
+                      </Button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}

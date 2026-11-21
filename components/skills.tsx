@@ -8,6 +8,7 @@ import {
   Briefcase,
   Wrench,
   Languages,
+  BrainCircuit,
 } from "lucide-react";
 
 function useInView(ref: React.RefObject<HTMLElement | null>) {
@@ -31,36 +32,34 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 
 const skillCategories = [
   {
-    icon: Database,
-    title: "Data Analysis",
-    skills: ["Python", "R", "SAS", "SQL", "Excel & VBA", "Power Query"],
+    icon: BarChart3,
+    title: "Data & BI",
+    skills: ["Power BI & DAX", "Power Query", "Tableau", "Looker", "Business Objects", "ArcGIS"],
   },
   {
-    icon: BarChart3,
-    title: "Data Visualization & BI",
-    skills: ["Power BI & DAX", "Business Object", "ARCGIS", "Reporting"],
+    icon: Database,
+    title: "Langages & analyse",
+    skills: ["Python · Pandas", "Scikit-Learn", "XGBoost", "SQL", "Oracle", "Excel & VBA", "R", "SAS"],
   },
-  
-
   {
     icon: Wrench,
-    title: "Cloud & Infrastructure",
-    skills: ["Azure / AWS / GCP ", "Databricks", "Déploiement BI"],
+    title: "Data Engineering",
+    skills: ["ETL / ELT", "Talend", "Data Warehouse", "Databricks", "Spark", "Airflow", "GCP", "BigQuery", "AWS"],
   },
   {
     icon: Briefcase,
-    title: "Business Analysis",
-    skills: ["KPI & Reporting", "Modélisation", "Collecte de données", "Conception BDD", "Aide à la décision"],
+    title: "MLOps & outils",
+    skills: ["Git", "GitHub", "Docker", "CI/CD", "MLflow"],
   },
   {
-    icon: Wrench,
-    title: "Outils & Technologies",
-    skills: ["Machine Learning", "Intelligence Artificielle", "Spark", "Opale"],
+    icon: BrainCircuit,
+    title: "Atouts professionnels",
+    skills: ["Leadership & encadrement", "Pédagogie & transmission", "Esprit d’analyse", "Adaptabilité"],
   },
   {
     icon: Languages,
     title: "Langues",
-    skills: ["Français", "Anglais", "Wolof"],
+    skills: ["Français · courant", "Anglais · intermédiaire", "Wolof · langue maternelle"],
   },
 ];
 
@@ -75,14 +74,16 @@ export function Skills() {
       className="relative bg-muted/40 px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+        <div className="mb-12 max-w-2xl border-b border-border pb-7">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             Compétences
           </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {"Mon stack technique"}
+          <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Les bons outils pour chaque question.
           </h2>
-          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
+          <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
+            Analyse, visualisation et compréhension métier : un socle adapté aux besoins du projet.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

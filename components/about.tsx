@@ -32,10 +32,10 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 }
 
 const softSkills = [
-  { icon: BrainCircuit, label: "Esprit d'analyse" },
-  { icon: MessageSquare, label: "Collaboration" },
-  { icon: ShieldCheck, label: "Rigueur" },
-  { icon: Lightbulb, label: "Orientation résultats" },
+  { icon: BrainCircuit, label: "Esprit d’analyse" },
+  { icon: MessageSquare, label: "Pédagogie & transmission" },
+  { icon: ShieldCheck, label: "Leadership & encadrement" },
+  { icon: Lightbulb, label: "Adaptabilité" },
 ];
 
 export function About() {
@@ -45,21 +45,21 @@ export function About() {
   const cards = [
     {
       icon: User,
-      title: "Qui suis-je",
+      title: "Mon approche",
       description:
-        "Professionnel rigoureux et orienté résultats, spécialisé dans l'analyse des données et l'aide à la prise de décision. Doté d'une excellente aptitude à collaborer avec les équipes multidisciplinaires, je m'engage à fournir des analyses précises et pertinentes.",
+        "Je transforme des données complexes en indicateurs pertinents, tableaux de bord Power BI et modèles prédictifs pour faciliter les décisions.",
     },
     {
       icon: GraduationCap,
-      title: "Formation",
+      title: "Parcours",
       description:
-        "Master Data Analyst (Junia XP, Lille, 2024-2026). Master Méthodes Quantitatives et Modélisation pour l'Entreprise (Université de Lille, 2022-2024). Master & Licence Statistique et Informatique Décisionnelle (Université de Bambey, Sénégal, 2019-2022).",
+        "Data Analyst et Data Scientist formé à Lille, avec des expériences chez Keolis / Ilévia et SNCF Voyageurs dans le transport de voyageurs.",
     },
     {
       icon: Target,
-      title: "Objectifs",
+      title: "Transmission",
       description:
-        "Recherche d'un CDD ou CDI à partir d'octobre 2026 pour mettre à profit mes compétences en data analyse, reporting et business intelligence au service d'une entreprise ambitieuse et innovante.",
+        "J’accompagne les équipes dans l’adoption des outils data, j’ai contribué à leur formation chez Keolis et encadré une seconde alternante chez SNCF Voyageurs.",
     },
   ];
 
@@ -70,14 +70,16 @@ export function About() {
       className="relative px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+        <div className="mb-12 max-w-2xl border-b border-border pb-7">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             À propos
           </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {"Découvrez mon parcours"}
+          <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Du besoin métier à la décision.
           </h2>
-          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
+          <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
+            Après plus de trois ans en alternance chez Keolis Lille Métropole et SNCF Voyageurs, je relie la technique (ETL, Python, machine learning) aux enjeux métier (KPI, besoins des équipes terrain) et à la prise de décision.
+          </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
@@ -116,7 +118,7 @@ export function About() {
           }}
         >
           <h3 className="mb-6 text-center font-heading text-lg font-semibold text-card-foreground">
-            Soft Skills
+            Qualités humaines
           </h3>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {softSkills.map((skill) => (
