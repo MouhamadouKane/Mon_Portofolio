@@ -2,7 +2,8 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Le client Resend est créé à la demande (dans POST) et non au chargement du module :
+// sinon `next build` échoue quand RESEND_API_KEY n'est pas définie (ex. déploiements Preview).
 const contactMessageSchema = z
   .object({
     name: z.string().trim().min(1).max(120),
@@ -39,6 +40,13 @@ export async function POST(req: Request) {
   }
 
   const { name, email, subject, message } = parsed.data;
+
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("[contact] RESEND_API_KEY is not configured");
+    return NextResponse.json({ success: false }, { status: 503 });
+  }
+  const resend = new Resend(apiKey);
 
   try {
     const { error } = await resend.emails.send({
