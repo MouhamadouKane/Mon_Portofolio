@@ -27,9 +27,9 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 const projects = [
   {
     icon: BarChart3,
-    title: "Application Power BI - Suivi de la Fraude",
+    title: "Suivi de la fraude · Ilévia",
     problem:
-      "Les équipes de Keolis Lille Métropole avaient besoin d'un outil centralisé pour suivre efficacement la fraude et adapter leurs actions sur le terrain.",
+      "Conception d’un outil Power BI centralisé pour aider les équipes de Keolis Lille Métropole à suivre la fraude et adapter leurs actions sur le terrain.",
     tags: ["Power BI", "DAX", "Business Object", "Excel"],
     highlights: [
       "Application Power BI déployée",
@@ -39,9 +39,9 @@ const projects = [
   },
   {
     icon: Users,
-    title: "Application Power BI - Décisions Stratégiques SNCF",
+    title: "Pilotage décisionnel · SNCF Voyageurs",
     problem:
-      "La SNCF Voyageurs avait besoin d'un outil BI permettant aux équipes de prendre des décisions stratégiques basées sur des données fiables et actualisées.",
+      "Un outil de Business Intelligence conçu pour donner aux équipes des données fiables et actualisées pour leurs décisions stratégiques.",
     tags: ["Power BI", "Opale", "Excel", "DAX"],
     highlights: [
       "Aide à la décision stratégique",
@@ -51,9 +51,9 @@ const projects = [
   },
   {
     icon: TrendingUp,
-    title: "Analyse des Données de Fraude - MEL",
+    title: "Analyse de la fraude · MEL",
     problem:
-      "Traiter et analyser les données de fraude pour la Métropole Européenne de Lille afin de mieux comprendre les tendances et optimiser les contrôles.",
+      "Analyse des données de fraude pour la Métropole Européenne de Lille afin de mieux comprendre les tendances et d’éclairer les actions de contrôle.",
     tags: ["Excel", "VBA", "Power BI", "ARCGIS"],
     highlights: [
       "Automatisation Excel avec VBA",
@@ -63,9 +63,9 @@ const projects = [
   },
   {
     icon: PieChart,
-    title: "Reporting Multi-Outils Ilévia",
+    title: "Reporting opérationnel · Ilévia",
     problem:
-      "Consolider les données provenant de sources multiples pour produire un reporting complet et fiable sur les opérations du réseau Ilévia.",
+      "Consolidation de données issues de plusieurs sources pour produire un reporting fiable sur les opérations du réseau Ilévia.",
     tags: ["Power BI", "Business Object", "Excel", "ARCGIS"],
     highlights: [
       "Sources de données consolidées",
@@ -86,14 +86,18 @@ export function Projects() {
       className="relative px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
-            Projets
+        <div className="mb-12 flex flex-col gap-5 border-b border-border pb-7 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              Projets sélectionnés
+            </p>
+            <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              De l’analyse à l’aide à la décision.
+            </h2>
+          </div>
+          <p className="max-w-md text-pretty leading-7 text-muted-foreground">
+            Quelques exemples de projets data et BI menés dans les secteurs du transport et de la santé.
           </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {"Mes réalisations"}
-          </h2>
-          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
         </div>
 
         <div className="grid gap-8 md:grid-cols-2">
@@ -143,7 +147,7 @@ export function Projects() {
                 </div>
                 <div className="mt-auto space-y-1.5">
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                    Résultats clés
+                    Contributions
                   </p>
                   {project.highlights.map((h) => (
                     <div

@@ -32,9 +32,9 @@ const experiences = [
     period: "2024 - 2026",
     type: "Alternance",
     missions: [
-      "Reporting avec les outils : Power BI, Opale, Excel",
-      "Mise en place d'une application Power BI pour aider les équipes à prendre des décisions stratégiques",
-      "Participation aux projets data scientist",
+      "Création de reportings avec Power BI, Opale et Excel",
+      "Mise en place d'une application Power BI pour éclairer les décisions stratégiques",
+      "Participation à des projets de data science",
     ],
     tools: ["Power BI", "Opale", "Excel"],
   },
@@ -45,9 +45,9 @@ const experiences = [
     period: "2023 - 2024",
     type: "Alternance",
     missions: [
-      "Reporting avec les outils : Power BI, Business Object, Excel et ARCGIS",
+      "Production de reportings avec Power BI, Business Objects, Excel et ArcGIS",
       "Mise en place d'une application Power BI pour le suivi de la fraude",
-      "Participation au projet data scientist",
+      "Participation à un projet de data science",
     ],
     tools: ["Power BI", "Business Object", "Excel", "ARCGIS"],
   },
@@ -60,19 +60,19 @@ const experiences = [
     missions: [
       "Traitement et analyse des données de la fraude pour la MEL",
       "Automatisation des outils Excel avec VBA",
-      "Reporting sur les données Ilévia avec Power BI, Business Object, Excel et ARCGIS",
+      "Reporting sur les données Ilévia avec Power BI, Business Objects, Excel et ArcGIS",
     ],
     tools: ["Power BI", "Business Object", "Excel", "VBA", "ARCGIS"],
   },
   
   {
-    role: "Chargé de d'analyse et de reporting (Stage)",
+    role: "Chargé d’analyse et de reporting (Stage)",
     company: "Institut Pasteur",
     location: "Dakar",
     period: "2022 - 2022",
     type: "Stage",
     missions: [
-      "Traitement et analyse des données Malaria de la région de Kédougou",
+      "Traitement et analyse des données sur le paludisme dans la région de Kédougou",
       "Reporting et mise en place des tableaux de bord interactifs",
     ],
     tools: ["Tableau Desktop", "Excel", "VBA", "ARCGIS"],
@@ -103,14 +103,16 @@ export function Experience() {
       className="relative bg-muted/40 px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+        <div className="mb-12 max-w-2xl border-b border-border pb-7">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             Parcours
           </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {"Expériences professionnelles"}
+          <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Une expérience ancrée dans le concret.
           </h2>
-          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
+          <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
+            Des équipes opérationnelles aux enjeux de pilotage, avec un fil conducteur : rendre les données actionnables.
+          </p>
         </div>
 
         {/* Timeline */}

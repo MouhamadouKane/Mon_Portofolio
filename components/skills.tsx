@@ -32,29 +32,29 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 const skillCategories = [
   {
     icon: Database,
-    title: "Data Analysis",
+    title: "Analyse de données",
     skills: ["Python", "R", "SAS", "SQL", "Excel & VBA", "Power Query"],
   },
   {
     icon: BarChart3,
-    title: "Data Visualization & BI",
-    skills: ["Power BI & DAX", "Business Object", "ARCGIS", "Reporting"],
+    title: "Visualisation & BI",
+    skills: ["Power BI & DAX", "Business Objects", "ArcGIS", "Reporting"],
   },
   
 
   {
     icon: Wrench,
-    title: "Cloud & Infrastructure",
-    skills: ["Azure / AWS / GCP ", "Databricks", "Déploiement BI"],
+    title: "Cloud & infrastructure",
+    skills: ["Azure", "AWS", "GCP", "Databricks", "Déploiement BI"],
   },
   {
     icon: Briefcase,
-    title: "Business Analysis",
+    title: "Analyse métier",
     skills: ["KPI & Reporting", "Modélisation", "Collecte de données", "Conception BDD", "Aide à la décision"],
   },
   {
     icon: Wrench,
-    title: "Outils & Technologies",
+    title: "Outils & technologies",
     skills: ["Machine Learning", "Intelligence Artificielle", "Spark", "Opale"],
   },
   {
@@ -75,14 +75,16 @@ export function Skills() {
       className="relative bg-muted/40 px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+        <div className="mb-12 max-w-2xl border-b border-border pb-7">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             Compétences
           </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {"Mon stack technique"}
+          <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Les bons outils pour chaque question.
           </h2>
-          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
+          <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
+            Analyse, visualisation et compréhension métier : un socle adapté aux besoins du projet.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,16 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Download, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { href: "#accueil", label: "Accueil" },
+  { href: "#projets", label: "Projets" },
   { href: "#apropos", label: "À propos" },
   { href: "#competences", label: "Compétences" },
-  { href: "#projets", label: "Projets" },
-  { href: "#experience", label: "Expériences" },
-  { href: "#certifications", label: "Certifications" },
+  { href: "#experience", label: "Parcours" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -19,34 +17,37 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 16);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "border-b border-border bg-background/90 shadow-sm backdrop-blur-md"
-          : "bg-transparent"
+          ? "border-b border-border/80 bg-background/90 shadow-sm backdrop-blur-xl"
+          : "bg-background/75 backdrop-blur-sm"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <a
-          href="#accueil"
-          className="font-heading text-xl font-bold tracking-tight text-foreground"
-        >
-          {"<MK />"}
+      <nav aria-label="Navigation principale" className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
+        <a href="#accueil" className="group inline-flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <span className="flex size-10 items-center justify-center rounded-xl bg-primary font-heading text-sm font-bold text-primary-foreground transition-transform group-hover:-rotate-3">
+            MK
+          </span>
+          <span className="hidden sm:block">
+            <span className="block font-heading text-sm font-semibold leading-tight text-foreground">Mouhamadou Kane</span>
+            <span className="mt-0.5 block text-xs text-muted-foreground">Data Analyst · Business Analyst</span>
+          </span>
+          <span className="sr-only sm:hidden">Mouhamadou Kane, accueil</span>
         </a>
 
-        {/* Desktop */}
-        <ul className="hidden items-center gap-6 lg:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {link.label}
               </a>
@@ -54,57 +55,50 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop actions */}
-        <div className="hidden items-center gap-2 lg:flex">
-          <Button asChild size="sm" className="gap-2">
+        <div className="hidden lg:block">
+          <Button asChild size="sm" variant="outline" className="gap-2 rounded-full">
             <a href="/Mouhamadou-Kane-CV.pdf" download="Mouhamadou-Kane-CV.pdf">
-              <Download size={14} />
-              CV
+              <Download aria-hidden="true" />
+              Télécharger le CV
             </a>
           </Button>
         </div>
 
-        {/* Mobile toggle */}
         <button
           type="button"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="text-foreground lg:hidden"
+          onClick={() => setMobileOpen((open) => !open)}
+          className="inline-flex size-11 items-center justify-center rounded-xl border border-border text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
           aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation"
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X aria-hidden="true" size={20} /> : <Menu aria-hidden="true" size={20} />}
         </button>
       </nav>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="animate-fade-in border-b border-border bg-background/95 backdrop-blur-md lg:hidden">
-          <ul className="flex flex-col gap-1 px-6 py-4">
+      <div id="mobile-navigation" hidden={!mobileOpen} className="animate-fade-in border-t border-border bg-background/95 backdrop-blur-xl lg:hidden">
+          <ul className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+                  className="block rounded-lg px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   {link.label}
                 </a>
               </li>
             ))}
-            <li className="mt-2 flex items-center gap-2">
-              <Button asChild size="sm" className="flex-1 gap-2">
-                <a
-                  href="/Mouhamadou-Kane-CV.pdf"
-                  download="Mouhamadou-Kane-CV.pdf"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <Download size={14} />
-                  Télécharger CV
+            <li className="pt-2">
+              <Button asChild className="w-full gap-2 rounded-full">
+                <a href="/Mouhamadou-Kane-CV.pdf" download="Mouhamadou-Kane-CV.pdf" onClick={() => setMobileOpen(false)}>
+                  <Download aria-hidden="true" />
+                  Télécharger mon CV
                 </a>
               </Button>
             </li>
           </ul>
-        </div>
-      )}
+      </div>
     </header>
   );
 }

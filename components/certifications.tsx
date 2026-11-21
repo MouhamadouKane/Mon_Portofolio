@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { Award, Eye, X } from "lucide-react";
+import { Award, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -36,21 +36,21 @@ const certifications = [
     title: "Power BI Expert",
     provider: "SNCF Voyageurs",
     year: "2026",
-    category: "Data Visualisation",
+    category: "Visualisation de données",
     certificateUrl: "/certificates/certificat-power-bi-expert.pdf",
   },
   {
     title: "Power BI Avancé",
     provider: "SNCF Voyageurs",
     year: "2025",
-    category: "Data Visualisation",
+    category: "Visualisation de données",
     certificateUrl: "/certificates/certificat-power-bi-avance.pdf",
   },
   {
     title: "Transition Écologique & RSE",
     provider: "SNCF Voyageurs",
     year: "2026",
-    category: "Sustainability",
+    category: "Transition écologique",
     certificateUrl: "/certificates/certificat-rse.pdf",
   },
   {
@@ -91,14 +91,16 @@ export function Certifications() {
       className="relative px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+        <div className="mb-12 max-w-2xl border-b border-border pb-7">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             Certifications
           </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {"Formations & Certifications"}
+          <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Une expertise qui continue d’évoluer.
           </h2>
-          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
+          <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
+            Power BI, protection des données et cybersécurité : les compétences renforcées par mes certifications.
+          </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

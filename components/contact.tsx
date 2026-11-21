@@ -5,6 +5,7 @@ import { Mail, Linkedin, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 
 /* -------------------- Hook animation -------------------- */
 function useInView(ref: React.RefObject<HTMLElement | null>) {
@@ -57,19 +58,21 @@ export function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef);
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<"success" | "error" | null>(null);
 
   /* -------------------- Submit handler -------------------- */
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setStatus(null);
 
     const form = e.currentTarget;
-
+    const formData = new FormData(form);
     const data = {
-      name: (form.name as HTMLInputElement).value,
-      email: (form.email as HTMLInputElement).value,
-      subject: (form.subject as HTMLInputElement).value,
-      message: (form.message as HTMLTextAreaElement).value,
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      subject: String(formData.get("subject") ?? ""),
+      message: String(formData.get("message") ?? ""),
     };
 
     try {
@@ -80,13 +83,13 @@ export function Contact() {
       });
 
       if (res.ok) {
-        alert("Message envoyé avec succès ✅");
+        setStatus("success");
         form.reset();
       } else {
-        alert("Erreur lors de l'envoi ❌");
+        setStatus("error");
       }
-    } catch (error) {
-      alert("Erreur réseau ❌");
+    } catch {
+      setStatus("error");
     } finally {
       setLoading(false);
     }
@@ -101,18 +104,15 @@ export function Contact() {
     >
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+        <div className="mb-12 max-w-2xl border-b border-border pb-7">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             Contact
           </p>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Travaillons ensemble
+          <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Parlons de vos enjeux data.
           </h2>
-          <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-primary" />
-          <p className="mx-auto mt-6 max-w-lg text-pretty text-muted-foreground">
-            Vous avez un projet data ou une opportunité ? <br />
-            N’hésitez pas à me contacter. Je suis disponible pour un poste de
-            consultant, en CDD ou en CDI, à partir d’octobre 2026.
+          <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
+            Vous avez un projet en analyse de données ou une opportunité en CDD ou CDI ? Échangeons sur vos besoins.
           </p>
         </div>
 
@@ -137,8 +137,8 @@ export function Contact() {
                   {item.href ? (
                     <a
                       href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={item.href.startsWith("https://") ? "_blank" : undefined}
+                      rel={item.href.startsWith("https://") ? "noopener noreferrer" : undefined}
                       className="text-sm font-medium text-foreground hover:text-primary"
                     >
                       {item.value}
@@ -156,13 +156,11 @@ export function Contact() {
           {/* Contact form */}
           <form
             onSubmit={handleSubmit}
-            className="space-y-5 lg:col-span-3"
+            className="flex flex-col gap-5 lg:col-span-3"
           >
             <div className="grid gap-5 sm:grid-cols-2">
-              <div>
-                <label className="mb-1.5 block text-sm font-medium">
-                  Nom complet
-                </label>
+              <div className="flex flex-col gap-1.5">
+                <Label htmlFor="name">Nom complet</Label>
                 <Input
                   id="name"
                   name="name"
@@ -170,10 +168,8 @@ export function Contact() {
                   placeholder="Votre nom"
                 />
               </div>
-              <div>
-                <label className="mb-1.5 block text-sm font-medium">
-                  Email
-                </label>
+              <div className="flex flex-col gap-1.5">
+                <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   name="email"
@@ -184,10 +180,8 @@ export function Contact() {
               </div>
             </div>
 
-            <div>
-              <label className="mb-1.5 block text-sm font-medium">
-                Sujet
-              </label>
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="subject">Sujet</Label>
               <Input
                 id="subject"
                 name="subject"
@@ -196,10 +190,8 @@ export function Contact() {
               />
             </div>
 
-            <div>
-              <label className="mb-1.5 block text-sm font-medium">
-                Message
-              </label>
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="message">Message</Label>
               <Textarea
                 id="message"
                 name="message"
@@ -212,12 +204,25 @@ export function Contact() {
             <Button
               type="submit"
               size="lg"
-              className="w-full gap-2 sm:w-auto"
+              className="w-full gap-2 rounded-full sm:w-auto"
               disabled={loading}
             >
-              <Send size={18} />
-              {loading ? "Envoi..." : "Envoyer le message"}
+              <Send aria-hidden="true" data-icon="inline-start" />
+              {loading ? "Envoi en cours…" : "Envoyer le message"}
             </Button>
+            {status && (
+              <p
+                role={status === "error" ? "alert" : "status"}
+                aria-live="polite"
+                className={`text-sm font-medium ${
+                  status === "success" ? "text-primary" : "text-destructive"
+                }`}
+              >
+                {status === "success"
+                  ? "Merci, votre message a bien été envoyé."
+                  : "Le message n’a pas pu être envoyé. Réessayez ou contactez-moi directement par e-mail."}
+              </p>
+            )}
           </form>
         </div>
       </div>

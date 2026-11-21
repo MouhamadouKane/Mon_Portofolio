@@ -18,13 +18,14 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Mouhamadou Kane | Data Analyst & Business Analyst",
+  title: "Mouhamadou Kane — Data Analyst & Business Analyst à Lille",
   description:
-    "Portfolio professionnel de Mouhamadou Kane - Data Analyst & Business Analyst. Analyse de données, Power BI, reporting et aide à la décision.",
+    "Découvrez le portfolio de Mouhamadou Kane : projets Power BI, analyse de données, reporting et Business Intelligence au service de la décision.",
+  applicationName: "Portfolio de Mouhamadou Kane",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2f9e6e",
+  themeColor: "#f8f7f3",
 };
 
 export default function RootLayout({
