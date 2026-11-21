@@ -8,6 +8,7 @@ import {
   Briefcase,
   Wrench,
   Languages,
+  BrainCircuit,
 } from "lucide-react";
 
 function useInView(ref: React.RefObject<HTMLElement | null>) {
@@ -31,36 +32,34 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 
 const skillCategories = [
   {
-    icon: Database,
-    title: "Analyse de données",
-    skills: ["Python", "R", "SAS", "SQL", "Excel & VBA", "Power Query"],
+    icon: BarChart3,
+    title: "Data & BI",
+    skills: ["Power BI & DAX", "Power Query", "Tableau", "Looker", "Business Objects", "ArcGIS"],
   },
   {
-    icon: BarChart3,
-    title: "Visualisation & BI",
-    skills: ["Power BI & DAX", "Business Objects", "ArcGIS", "Reporting"],
+    icon: Database,
+    title: "Langages & analyse",
+    skills: ["Python · Pandas", "Scikit-Learn", "XGBoost", "SQL", "Oracle", "Excel & VBA", "R", "SAS"],
   },
-  
-
   {
     icon: Wrench,
-    title: "Cloud & infrastructure",
-    skills: ["Azure", "AWS", "GCP", "Databricks", "Déploiement BI"],
+    title: "Data Engineering",
+    skills: ["ETL / ELT", "Talend", "Data Warehouse", "Databricks", "Spark", "Airflow", "GCP", "BigQuery", "AWS"],
   },
   {
     icon: Briefcase,
-    title: "Analyse métier",
-    skills: ["KPI & Reporting", "Modélisation", "Collecte de données", "Conception BDD", "Aide à la décision"],
+    title: "MLOps & outils",
+    skills: ["Git", "GitHub", "Docker", "CI/CD", "MLflow"],
   },
   {
-    icon: Wrench,
-    title: "Outils & technologies",
-    skills: ["Machine Learning", "Intelligence Artificielle", "Spark", "Opale"],
+    icon: BrainCircuit,
+    title: "Atouts professionnels",
+    skills: ["Leadership & encadrement", "Pédagogie & transmission", "Esprit d’analyse", "Adaptabilité"],
   },
   {
     icon: Languages,
     title: "Langues",
-    skills: ["Français", "Anglais", "Wolof"],
+    skills: ["Français · courant", "Anglais · intermédiaire", "Wolof · langue maternelle"],
   },
 ];
 

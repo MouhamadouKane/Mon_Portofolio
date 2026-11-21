@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDownRight, Download, MapPin } from "lucide-react";
+import { ArrowDownRight, Download, Github, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -22,11 +22,11 @@ export function Hero() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary/40 motion-reduce:animate-none" />
               <span className="relative inline-flex size-2 rounded-full bg-primary" />
             </span>
-            À l&apos;écoute d&apos;opportunités en CDD ou CDI
+            Disponible immédiatement · CDI, CDD ou intérim
           </div>
 
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Data &amp; Business Intelligence · Lille
+            Data Analyst · Data Scientist · Expert Power BI
           </p>
           <h1 className="font-heading text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-foreground sm:text-6xl lg:text-7xl">
             Mouhamadou
@@ -37,23 +37,29 @@ export function Hero() {
             Des données claires pour des décisions qui comptent.
           </p>
           <p className="mt-4 max-w-xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-            Data Analyst et Business Analyst, je transforme des données métier en analyses, reportings et tableaux de bord utiles aux équipes.
+            3 ans d’expérience data dans le transport (SNCF Voyageurs, Keolis / Ilévia). Je transforme des données complexes en tableaux de bord Power BI et en modèles prédictifs utiles à la prise de décision.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <Button asChild size="lg" className="gap-2 rounded-full px-6">
               <a href="#projets">
-                Découvrir mes projets
+                Voir mes projets
                 <ArrowDownRight aria-hidden="true" />
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="gap-2 rounded-full px-6">
               <a href="#contact">Me contacter</a>
             </Button>
+            <Button asChild variant="outline" size="lg" className="gap-2 rounded-full px-6">
+              <a href="https://github.com/MouhamadouKane" target="_blank" rel="noopener noreferrer">
+                <Github aria-hidden="true" />
+                GitHub
+              </a>
+            </Button>
             <a
               href="/Mouhamadou-Kane-CV.pdf"
               download="Mouhamadou-Kane-CV.pdf"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-4 text-sm font-medium text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full px-4 text-sm font-medium text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <Download aria-hidden="true" size={16} />
               Télécharger mon CV
@@ -62,7 +68,7 @@ export function Hero() {
 
           <div className="mt-10 flex items-center gap-2 border-t border-border pt-5 text-sm text-muted-foreground">
             <MapPin aria-hidden="true" size={16} className="text-primary" />
-            Basé à Lille, France
+            Villeneuve-d&apos;Ascq · Lille, France
           </div>
         </div>
 
@@ -71,7 +77,7 @@ export function Hero() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-muted shadow-[0_24px_80px_-36px_hsl(var(--foreground)/0.42)]">
             <Image
               src="/profile.jpg"
-              alt="Mouhamadou Kane, Data Analyst et Business Analyst"
+              alt="Mouhamadou Kane, Data Analyst et Data Scientist"
               fill
               className="object-cover object-[center_24%]"
               priority

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { Mail, Linkedin, MapPin, Send } from "lucide-react";
+import { Mail, Linkedin, MapPin, Send, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -43,13 +43,19 @@ const contactInfo = [
     icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/mouhamadou-kane",
-    href: "https://www.linkedin.com/in/mouhamadou-kane-93921218b",
+    href: "https://www.linkedin.com/in/mouhamadou-kane/",
   },
   {
     icon: MapPin,
     label: "Localisation",
-    value: "Lille, France",
+    value: "Villeneuve-d’Ascq · Lille, France",
     href: null,
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "github.com/MouhamadouKane",
+    href: "https://github.com/MouhamadouKane",
   },
 ];
 
@@ -112,7 +118,7 @@ export function Contact() {
             Parlons de vos enjeux data.
           </h2>
           <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
-            Vous avez un projet en analyse de données ou une opportunité en CDD ou CDI ? Échangeons sur vos besoins.
+            Disponible immédiatement pour un CDI, un CDD ou une mission en intérim. Parlons de vos enjeux data.
           </p>
         </div>
 

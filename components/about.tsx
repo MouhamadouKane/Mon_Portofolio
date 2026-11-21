@@ -32,10 +32,10 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 }
 
 const softSkills = [
-  { icon: BrainCircuit, label: "Esprit d'analyse" },
-  { icon: MessageSquare, label: "Collaboration" },
-  { icon: ShieldCheck, label: "Rigueur" },
-  { icon: Lightbulb, label: "Orientation résultats" },
+  { icon: BrainCircuit, label: "Esprit d’analyse" },
+  { icon: MessageSquare, label: "Pédagogie & transmission" },
+  { icon: ShieldCheck, label: "Leadership & encadrement" },
+  { icon: Lightbulb, label: "Adaptabilité" },
 ];
 
 export function About() {
@@ -47,19 +47,19 @@ export function About() {
       icon: User,
       title: "Mon approche",
       description:
-        "Je fais le lien entre les données et les besoins métier : cadrer les bonnes questions, fiabiliser l'analyse et rendre les résultats faciles à comprendre.",
+        "Je transforme des données complexes en indicateurs pertinents, tableaux de bord Power BI et modèles prédictifs pour faciliter les décisions.",
     },
     {
       icon: GraduationCap,
-      title: "Formation",
+      title: "Parcours",
       description:
-        "Master Data Analyst à Junia XP, complété par une formation en méthodes quantitatives et modélisation pour l’entreprise à l’Université de Lille.",
+        "Data Analyst et Data Scientist formé à Lille, avec des expériences chez Keolis / Ilévia et SNCF Voyageurs dans le transport de voyageurs.",
     },
     {
       icon: Target,
-      title: "Prochaine étape",
+      title: "Transmission",
       description:
-        "Je suis à l’écoute d’un CDD ou CDI en analyse de données ou Business Intelligence, où contribuer à des décisions mieux éclairées.",
+        "J’accompagne les équipes dans l’adoption des outils data, j’ai contribué à leur formation chez Keolis et encadré une seconde alternante chez SNCF Voyageurs.",
     },
   ];
 
@@ -78,7 +78,7 @@ export function About() {
             Du besoin métier à la décision.
           </h2>
           <p className="mt-4 max-w-xl text-pretty leading-7 text-muted-foreground">
-            Une formation quantitative et une expérience de terrain, au service d’analyses fiables et utiles.
+            Après plus de trois ans en alternance chez Keolis Lille Métropole et SNCF Voyageurs, je relie la technique (ETL, Python, machine learning) aux enjeux métier (KPI, besoins des équipes terrain) et à la prise de décision.
           </p>
         </div>
 

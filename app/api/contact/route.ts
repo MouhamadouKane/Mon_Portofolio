@@ -1,29 +1,68 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { z } from "zod";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const contactMessageSchema = z
+  .object({
+    name: z.string().trim().min(1).max(120),
+    email: z.string().trim().email().max(254),
+    subject: z.string().trim().min(1).max(200),
+    message: z.string().trim().min(1).max(5000),
+  })
+  .strict();
+
+function escapeHtml(value: string) {
+  const entities: Record<string, string> = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  };
+
+  return value.replace(/[&<>"']/g, (character) => entities[character] ?? character);
+}
 
 export async function POST(req: Request) {
-  try {
-    const { name, email, subject, message } = await req.json();
+  let body: unknown;
 
-    await resend.emails.send({
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ success: false }, { status: 400 });
+  }
+
+  const parsed = contactMessageSchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json({ success: false }, { status: 400 });
+  }
+
+  const { name, email, subject, message } = parsed.data;
+
+  try {
+    const { error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
       to: ["kanemouha20@gmail.com"],
       replyTo: email,
-      subject: `📩 ${subject}`,
+      subject: `Message portfolio : ${subject.replace(/[\r\n]+/g, " ")}`,
       html: `
         <h2>Nouveau message depuis ton portfolio</h2>
-        <p><strong>Nom :</strong> ${name}</p>
-        <p><strong>Email :</strong> ${email}</p>
+        <p><strong>Nom :</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email :</strong> ${escapeHtml(email)}</p>
         <p><strong>Message :</strong></p>
-        <p>${message}</p>
+        <p style="white-space: pre-wrap">${escapeHtml(message)}</p>
       `,
     });
 
+    if (error) {
+      console.error("[contact] Email delivery failed");
+      return NextResponse.json({ success: false }, { status: 502 });
+    }
+
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error(error);
+  } catch {
+    console.error("[contact] Request processing failed");
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }

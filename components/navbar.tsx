@@ -9,6 +9,7 @@ const navLinks = [
   { href: "#apropos", label: "À propos" },
   { href: "#competences", label: "Compétences" },
   { href: "#experience", label: "Parcours" },
+  { href: "#formation", label: "Formation" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -37,7 +38,7 @@ export function Navbar() {
           </span>
           <span className="hidden sm:block">
             <span className="block font-heading text-sm font-semibold leading-tight text-foreground">Mouhamadou Kane</span>
-            <span className="mt-0.5 block text-xs text-muted-foreground">Data Analyst · Business Analyst</span>
+            <span className="mt-0.5 block text-xs text-muted-foreground">Data Analyst · Data Scientist</span>
           </span>
           <span className="sr-only sm:hidden">Mouhamadou Kane, accueil</span>
         </a>

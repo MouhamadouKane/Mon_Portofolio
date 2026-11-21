@@ -26,69 +26,68 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
 
 const experiences = [
   {
-    role: "Business Analyst (Alternance)",
-    company: "SNCF Voyageurs",
-    location: "France",
-    period: "2024 - 2026",
+    role: "Alternant Business Analyst",
+    company: "SNCF Voyageurs · Direction Commerciale",
+    location: "Axe TGV Nord",
+    period: "Sept. 2024 – Sept. 2026",
     type: "Alternance",
     missions: [
-      "Création de reportings avec Power BI, Opale et Excel",
-      "Mise en place d'une application Power BI pour éclairer les décisions stratégiques",
-      "Participation à des projets de data science",
+      "Conception et déploiement d’une application Power BI d’aide à la décision commerciale.",
+      "Développement d’un modèle prédictif du trafic et des recettes ferroviaires avec Python et Scikit-Learn.",
+      "Accompagnement de l’équipe sur Databricks et encadrement de la seconde alternante.",
+      "Reporting multi-sources avec Power BI, Opale et Excel / VBA; automatisation des traitements.",
     ],
-    tools: ["Power BI", "Opale", "Excel"],
+    tools: ["Power BI", "Python", "Scikit-Learn", "Databricks", "Opale", "Excel / VBA"],
   },
   {
-    role: "Chargé des données et d'analyse (Alternance)",
-    company: "Keolis Lille Métropole",
+    role: "Alternant Chargé des données et d’analyse",
+    company: "Keolis Lille Métropole · Réseau Ilévia",
     location: "Lille",
-    period: "2023 - 2024",
+    period: "Sept. 2023 – Août 2024",
     type: "Alternance",
     missions: [
-      "Production de reportings avec Power BI, Business Objects, Excel et ArcGIS",
-      "Mise en place d'une application Power BI pour le suivi de la fraude",
-      "Participation à un projet de data science",
+      "Conception d’une application Power BI de suivi de la fraude, avec pilotage par équipe terrain.",
+      "Analyse géospatiale avec ArcGIS et production de reportings avec Power BI, Business Objects et Excel.",
+      "Formation des équipes aux outils de reporting et de visualisation de données.",
     ],
-    tools: ["Power BI", "Business Object", "Excel", "ARCGIS"],
+    tools: ["Power BI", "Business Objects", "Excel", "ArcGIS"],
   },
   {
-    role: "Chargé des données et d'analyse (Stage)",
-    company: "Keolis Lille Métropole",
+    role: "Stagiaire Chargé des données et d’analyse",
+    company: "Keolis Lille Métropole · Réseau Ilévia",
     location: "Lille",
-    period: "2022 - 2023",
+    period: "Mai – Août 2023",
     type: "Stage",
     missions: [
-      "Traitement et analyse des données de la fraude pour la MEL",
-      "Automatisation des outils Excel avec VBA",
-      "Reporting sur les données Ilévia avec Power BI, Business Objects, Excel et ArcGIS",
+      "Analyse des données de fraude pour identifier les tendances et les zones à risque.",
+      "Automatisation Excel / VBA et cartographie ArcGIS pour la Métropole Européenne de Lille.",
     ],
-    tools: ["Power BI", "Business Object", "Excel", "VBA", "ARCGIS"],
+    tools: ["Excel", "VBA", "ArcGIS"],
   },
-  
   {
-    role: "Chargé d’analyse et de reporting (Stage)",
-    company: "Institut Pasteur",
+    role: "Stagiaire Chargé d’analyse et de reporting",
+    company: "Institut Pasteur de Dakar",
     location: "Dakar",
-    period: "2022 - 2022",
+    period: "2022",
     type: "Stage",
     missions: [
-      "Traitement et analyse des données sur le paludisme dans la région de Kédougou",
-      "Reporting et mise en place des tableaux de bord interactifs",
+      "Traitement et analyse des données sur le paludisme dans la région de Kédougou.",
+      "Reporting et mise en place de tableaux de bord interactifs.",
     ],
-    tools: ["Tableau Desktop", "Excel", "VBA", "ARCGIS"],
+    tools: ["Tableau", "Excel"],
   },
 ];
 
 const engagements = [
   {
-    role: "Adjoint au président de la commission Pôle Data",
-    org: "AESN (Association des Étudiants Sénégalais du Nord)",
-    period: "2024 - 2025",
+    role: "Adjoint au président · Commission Pôle Data",
+    org: "AESN · Association des Étudiants Sénégalais du Nord",
+    period: "2025 – 2026",
   },
   {
-    role: "Président de la commission pédagogique",
-    org: "AESN (Association des Étudiants Sénégalais du Nord)",
-    period: "2023 - 2024",
+    role: "Président · Commission pédagogique",
+    org: "AESN · Association des Étudiants Sénégalais du Nord",
+    period: "2023 – 2024",
   },
 ];
 
@@ -133,9 +132,7 @@ export function Experience() {
                 }}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 top-6 hidden h-5 w-5 items-center justify-center rounded-full border-4 border-background bg-primary md:flex">
-                  <span className="sr-only">Experience marker</span>
-                </div>
+                <div aria-hidden="true" className="absolute left-4 top-6 hidden h-5 w-5 items-center justify-center rounded-full border-4 border-background bg-primary md:flex" />
 
                 <div className="rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md">
                   <div className="flex flex-wrap items-start justify-between gap-3">
